@@ -1,0 +1,15 @@
+volumes:
+  ignore:
+version: '3.8'
+services:
+  dino:
+    build: .
+    runtime: nvidia
+    ipc: host
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - source: .
+        target: /root/workdir
+        type: bind
+    tty: true
